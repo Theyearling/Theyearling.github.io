@@ -58,8 +58,6 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
-	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -106,8 +104,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -122,9 +118,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -162,35 +156,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Ros-begening"><a href="#Ros-begening" class="headerlink" title="Ros_begening"></a>Ros_begening</h1><h1 id="some-problem-in-ros-learning"><a href="#some-problem-in-ros-learning" class="headerlink" title="some problem in ros-learning"></a>some problem in ros-learning</h1><h1 id="sudo-apt-get-update出现-由于没有公钥，无法验证下列签名：NO-PUBKEY-F42ED6FBAB17C654"><a href="#sudo-apt-get-update出现-由于没有公钥，无法验证下列签名：NO-PUBKEY-F42ED6FBAB17C654" class="headerlink" title="sudo apt-get update出现:由于没有公钥，无法验证下列签名：NO_PUBKEY F42ED6FBAB17C654"></a>sudo apt-get update出现:由于没有公钥，无法验证下列签名：NO_PUBKEY F42ED6FBAB17C654</h1><p>  sudo apt-key adv –keyserver keyserver.ubuntu.com –recv-keys F42ED6FBAB17C654</p>
-<h1 id="rosdep-init、upgate"><a href="#rosdep-init、upgate" class="headerlink" title="rosdep init、upgate:"></a>rosdep init、upgate:</h1><p>主要原因是网速和墙<br><br> 1.建议换成手机热点<br><br> 2.爪巴墙，<br><a target="_blank" rel="noopener" href="https://github.com/Qv2ray/Qv2ray">https://github.com/Qv2ray/Qv2ray</a><br><br>           <a target="_blank" rel="noopener" href="https://github.com/v2fly/v2ray-core/releases">https://github.com/v2fly/v2ray-core/releases</a><br><br>    搭建梯子出墙，一切就迎刃而解。</p>
-<h1 id="gazebo参数出错："><a href="#gazebo参数出错：" class="headerlink" title="gazebo参数出错："></a>gazebo参数出错：</h1><p> export SVGA VGPU10=0</p>
-<h1 id="gazebo360°旋转："><a href="#gazebo360°旋转：" class="headerlink" title="gazebo360°旋转："></a>gazebo360°旋转：</h1><p> shift+旋转、鼠标左右中建各有功能</p>
-<h1 id="Contronller-does-not-exit："><a href="#Contronller-does-not-exit：" class="headerlink" title="Contronller does not exit："></a>Contronller does not exit：</h1><p> sudo apt-get install ros<em>contronller</em></p>
-<h1 id="添加依赖不成功："><a href="#添加依赖不成功：" class="headerlink" title="添加依赖不成功："></a>添加依赖不成功：</h1><p> <a target="_blank" rel="noopener" href="http://repositories.ros.org/status_page/ros_noetic_default.html">ROS packages for Kinetic</a><br><br> <a target="_blank" rel="noopener" href="http://repositories.ros.org/status_page/ros_noetic_default.html">ROS packages for Noetic</a><br><br> 可以看到noetic至少少了1000+的依赖包，只能自行下载package到/home/theyearling/catkin_ws/src</p>
-<h1 id="catkin-make出错："><a href="#catkin-make出错：" class="headerlink" title="catkin_make出错："></a>catkin_make出错：</h1><pre><code>hector_mappingConfig.cmake
-hector_mapping-config.cmake</code></pre>
-<p>  <strong>solve:</strong></p>
-<p>   <strong>1.下载package到catkin_ws/src</strong></p>
-<pre><code>git clone https://github.com/ros-perception/slam_gmapping.git
-git clone https://github.com/tu-darmstadt-ros-pkg/hector_slam.git</code></pre>
-<p>   <strong>2.修改相应的package.xml</strong></p>
-<pre><code>&lt;build_depend&gt;gmapping&lt;/build_depend&gt;
-&lt;build_depend&gt;hector_mapping&lt;/build_depend&gt;
-
-&lt;run_depend&gt;gmapping&lt;/run_depend&gt;
-&lt;run_depend&gt;hector_mapping&lt;/run_depend&gt;</code></pre>
-<h1 id="安装依赖："><a href="#安装依赖：" class="headerlink" title="安装依赖："></a>安装依赖：</h1><pre><code>rosdep install --from-paths src --ignore-src --rosdistro=noetic -y</code></pre>
-<h1 id="flashfxp与Ubuntu16-04文件传递："><a href="#flashfxp与Ubuntu16-04文件传递：" class="headerlink" title="flashfxp与Ubuntu16.04文件传递："></a>flashfxp与Ubuntu16.04文件传递：</h1><p>  sudo  apt-get  install  vsftpd //Ubuntu下载vsftpd</p>
-<p>  sudo  gedit  /etc/vsftpd.conf //修改配置文件<br><br>  #local_enable=YES<br><br>  #write_enable=YES //去掉#号</p>
-<p>  sudo  /etc/init.d/vsftpd  start //启动命令<br><br>  sudo  /etc/init.d/vsftpd  stop //关闭命令</p>
-<h1 id="没有安装相应的ros控制软件包"><a href="#没有安装相应的ros控制软件包" class="headerlink" title="没有安装相应的ros控制软件包"></a>没有安装相应的ros控制软件包</h1><pre><code>Could not load controller &#39;joint_state_controller&#39; because controller type &#39;joint_state_controller/JointStateController&#39; does not exist.
-Could not load controller &#39;joint_position_controller&#39; because controller type &#39;joint_position_controller/JointPositionController&#39; does not exist.
-Could not load controller &#39;joint_velocity_controller&#39; because controller type &#39;joint_velocity_controller/JointVelocityController&#39; does not exist.</code></pre>
-<p>  <strong>solve:</strong><br><br>      sudo apt-get install ros-kinetic-joint-state-controller<br><br>      sudo apt-get install ros-kinetic-position-controllers<br><br>      sudo apt-get install ros-kinetic-velocity-controllers<br></p>
-<p>  <strong>advice:</strong><br><br>    sudo apt-get install ros-kinetic-effort-controllers <br><br>    sudo apt-get install ros-kinetic-joint-trajectory-controller</p>
-<h1 id="GazeboRosControlPlugin-missing-lt-legacyModeNS-gt-："><a href="#GazeboRosControlPlugin-missing-lt-legacyModeNS-gt-：" class="headerlink" title="GazeboRosControlPlugin missing &lt;legacyModeNS&gt; ："></a>GazeboRosControlPlugin missing &lt;legacyModeNS&gt; ：</h1><p>  urdf 描述文件中，对 gazebo 插件描述添加 <legacyModeNS>true</legacyModeNS><br></p>
-<h1 id="运行Turtlebot时出现’TURTLEBOT-GAZEBO-WORLD-FILE’-is-not-set"><a href="#运行Turtlebot时出现’TURTLEBOT-GAZEBO-WORLD-FILE’-is-not-set" class="headerlink" title="运行Turtlebot时出现’TURTLEBOT_GAZEBO_WORLD_FILE’ is not set"></a>运行Turtlebot时出现’TURTLEBOT_GAZEBO_WORLD_FILE’ is not set</h1><p>  export TURTLEBOT_GAZEBO_WORLD_FILE=/opt/ros/kinetic/share/turtlebot_gazebo/worlds/playground.world</p>
-
+        
+          <a class="article-more-a" href="/2020/12/29/ROSbegin/#more">more >></a>
+        
       
 
       
@@ -253,15 +221,9 @@ Could not load controller &#39;joint_velocity_controller&#39; because controller
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+        
+          <a class="article-more-a" href="/2020/12/29/hello-world/#more">more >></a>
+        
       
 
       
