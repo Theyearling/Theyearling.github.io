@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>文章分类 | Theyearling—岁鹿</title>
+  <title>move_base相关参数 | Theyearling—岁鹿</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="新生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="文章分类">
-<meta property="og:url" content="http://example.com/categories/index.html">
+  <meta name="description" content="move_base实现参数as_,             &#x2F;&#x2F;movebase节点服务器 planner_,        &#x2F;&#x2F;全局规划器 tc_,             &#x2F;&#x2F;局部规划器 planner_costmap_ros_, &#x2F;&#x2F;规划器代价地图 controller_costmap_ros_, &#x2F;&#x2F;控制器代价地图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="move_base相关参数">
+<meta property="og:url" content="http://example.com/2020/12/29/move_base-param/index.html">
 <meta property="og:site_name" content="Theyearling—岁鹿">
-<meta property="og:description" content="新生">
+<meta property="og:description" content="move_base实现参数as_,             &#x2F;&#x2F;movebase节点服务器 planner_,        &#x2F;&#x2F;全局规划器 tc_,             &#x2F;&#x2F;局部规划器 planner_costmap_ros_, &#x2F;&#x2F;规划器代价地图 controller_costmap_ros_, &#x2F;&#x2F;控制器代价地图">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-01-05T14:12:17.000Z">
-<meta property="article:modified_time" content="2021-01-05T14:51:19.722Z">
+<meta property="article:published_time" content="2020-12-29T04:11:41.647Z">
+<meta property="article:modified_time" content="2021-07-07T13:38:33.729Z">
 <meta property="article:author" content="Theyearling">
-<meta property="article:tag" content="ROS">
+<meta property="article:tag" content="move_base">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Theyearling—岁鹿" type="application/atom+xml">
@@ -153,20 +153,216 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article class="article article-type-post show">
-    <header class="article-header" style="border-bottom: 1px solid #ccc">
-    <h1 class="article-title" itemprop="name">
-      文章分类
-    </h1>
-    </header>
+            <article id="post-move_base-param" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      move_base相关参数
+    </h1>
+  
+
+        
+        <a href="/2020/12/29/move_base-param/" class="archive-article-date">
+  	<time datetime="2020-12-29T04:11:41.647Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-29</time>
+</a>
+        
+      </header>
     
-    <div class="category-all-page">
-      <h2>共计&nbsp;2&nbsp;个分类</h2>
-      <ul class="category-list-item-list"><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/ROS/">ROS</a><span class="category-list-item-list-count">2</span><ul class="category-list-item-list-child"><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/ROS/clbrobot/">clbrobot</a><span class="category-list-item-list-count">1</span></li></ul></li></ul>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="move-base实现参数"><a href="#move-base实现参数" class="headerlink" title="move_base实现参数"></a>move_base实现参数</h1><pre><code>as_,             //movebase节点服务器
+planner_,        //全局规划器
+tc_,             //局部规划器
+planner_costmap_ros_, //规划器代价地图
+controller_costmap_ros_, //控制器代价地图</code></pre>
+<a id="more"></a>
+<pre><code>planner_plan_, //plan buffer
+latest_plan_, //plan buffer
+controller_plan, //plan buffer
+
+make_plan_srv_, //注册获取路径服务
+state_, //规划状态
+
+tfScalar, //抽象浮点数类型，以便在双精度和单精度浮点之间轻松切换
+
+tf::TransformListener&amp; tf_; //用于goalToGlobalFrame函数中坐标系转换
+geometry_msgs::PoseStamped planner_goal_; //在executecb函数中被赋值为goal
+
+planner_mutex_; //用于锁定plan线程
+planner_cond_; //接受任意类型的锁
+planning_retries_：//规划重试次数
+configuration_mutex_：//用于锁定配参线程
+
+last_valid_control_：//上一次有效控制的时间
+last_valid_plan_： //上一次有效plan的时间
+last_oscillation_reset_： //上一次小车振荡的时间
+
+MoveBaseActionServer: actionlib::SimpleActionServer&lt;move_base_msgs::MoveBaseAction&gt;</code></pre>
+<h1 id="move-base配置参数"><a href="#move-base配置参数" class="headerlink" title="move_base配置参数"></a>move_base配置参数</h1><pre><code>controller_frequency：向机器人底盘发送的控制速度的频率，该速度由base_local_planner计算
+planner_patience：进行全局规划的时间间隔，如果超时则认为规划失败
+controller_patience：等待控制速度的时间间隔，如果控制速度的发布超过设置时间，则认为局部路径规划失败
+conservative_reset_dist：在恢复模块执行后，重置的代价地图范围
+recovery_behavior_enabled：是否使用恢复模块，默认值为true
+clearing_rotation_allowed：是否允许旋转恢复行为，默认为true
+shutdown_costmaps：当move_base不活动时，是否关闭代价地图的加载，默认为false
+oscillation_timeout：在执行恢复行为之前允许振荡的时间（秒）
+planner_frequency：全局规划器的执行频率，如果为0则只有出现新的目标点，才会重新规划
+max_planning_retries：在执行恢复行为之前允许计划重试的次数.默认为-1，表示全局规划失败后立即执行恢复模块
+c_freq_change_：是否改变控制频率</code></pre>
+<h1 id="dwa-planner实现参数"><a href="#dwa-planner实现参数" class="headerlink" title="dwa_planner实现参数"></a>dwa_planner实现参数</h1><pre><code>dp_：DWAplanner轨迹控制器</code></pre>
+<h1 id="dwa-planner配置参数"><a href="#dwa-planner配置参数" class="headerlink" title="dwa_planner配置参数"></a>dwa_planner配置参数</h1><pre><code>sim_time (double, default: 1.7)：仿真时间，仿真距离=sim_time*vel
+sim_granularity (double, default: 0.025)：轨迹的碰撞检测距离
+vx_samples (integer, default: 3)：
+x轴方向速度采样数量
+vy_samples (integer, default: 10)：y轴方向速度采样数量
+vth_samples (integer, default: 20)：角速度采样数量
+controller_frequency (double, default: 20.0)：发布控制速度的频率
+
+path_distance_bias (double, default: 32.0)：局部规划路径与全局路径保持一致的权重系数
+goal_distance_bias (double, default: 24.0)：以多大的权重尝试到达目标点，增大后与全局规划路径一致性降低
+occdist_scale (double, default: 0.01)：机器人以多大权重躲避障碍物，过大会导致机器人陷入困境
+forward_point_distance (double, default: 0.325)：将机器人与目标点连线并延长forward_point_distance距离作为一个评分点
+stop_time_buffer (double, default: 0.2)：为防止碰撞,机器人必须提前停止的时间长度</code></pre>
+<h1 id="ROS-Time-和-ROS-Duration"><a href="#ROS-Time-和-ROS-Duration" class="headerlink" title="ROS::Time 和 ROS::Duration"></a>ROS::Time 和 ROS::Duration</h1><pre><code>time：表示时刻
+duration：表示时间间隔
+
+1 hour + 1 hour = 2 hours (duration + duration = duration)
+
+hours - 1 hour = 1 hour (duration - duration = duration)
+
+Today + 1 day = tomorrow (time + duration = time)
+
+Today - tomorrow = -1 day (time - time = duration)
+
+Today + tomorrow = error (time + time is undefined)</code></pre>
+
+      
+
+      
     </div>
-    
-  </article>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">move_base</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/12/29/move_base-param/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/12/29/ROSbegin/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ROSbegin
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+
           </div>
         </div>
       </div>
@@ -202,7 +398,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

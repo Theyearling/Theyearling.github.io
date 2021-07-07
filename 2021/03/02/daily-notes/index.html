@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>文章分类 | Theyearling—岁鹿</title>
+  <title>daily-notes | Theyearling—岁鹿</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="新生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="文章分类">
-<meta property="og:url" content="http://example.com/categories/index.html">
+  <meta name="description" content="二维vector初始化及大小1.vector&lt;vector&lt;int&gt;&gt; vec1(10, vector&lt;int&gt;(10)); 2.vector&lt;vector&lt;int&gt;&gt; vec2; vec2.resize(vec1.size(), vector&lt;int&gt;(vec1[0].size)); 二维vector第一维升序，第二维降序排">
+<meta property="og:type" content="article">
+<meta property="og:title" content="daily-notes">
+<meta property="og:url" content="http://example.com/2021/03/02/daily-notes/index.html">
 <meta property="og:site_name" content="Theyearling—岁鹿">
-<meta property="og:description" content="新生">
+<meta property="og:description" content="二维vector初始化及大小1.vector&lt;vector&lt;int&gt;&gt; vec1(10, vector&lt;int&gt;(10)); 2.vector&lt;vector&lt;int&gt;&gt; vec2; vec2.resize(vec1.size(), vector&lt;int&gt;(vec1[0].size)); 二维vector第一维升序，第二维降序排">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-01-05T14:12:17.000Z">
-<meta property="article:modified_time" content="2021-01-05T14:51:19.722Z">
+<meta property="article:published_time" content="2021-03-02T12:07:21.000Z">
+<meta property="article:modified_time" content="2021-07-07T13:30:33.590Z">
 <meta property="article:author" content="Theyearling">
-<meta property="article:tag" content="ROS">
+<meta property="article:tag" content="c++">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Theyearling—岁鹿" type="application/atom+xml">
@@ -153,20 +153,255 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article class="article article-type-post show">
-    <header class="article-header" style="border-bottom: 1px solid #ccc">
-    <h1 class="article-title" itemprop="name">
-      文章分类
-    </h1>
-    </header>
+            <article id="post-daily-notes" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      daily-notes
+    </h1>
+  
+
+        
+        <a href="/2021/03/02/daily-notes/" class="archive-article-date">
+  	<time datetime="2021-03-02T12:07:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-02</time>
+</a>
+        
+      </header>
     
-    <div class="category-all-page">
-      <h2>共计&nbsp;2&nbsp;个分类</h2>
-      <ul class="category-list-item-list"><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/ROS/">ROS</a><span class="category-list-item-list-count">2</span><ul class="category-list-item-list-child"><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/ROS/clbrobot/">clbrobot</a><span class="category-list-item-list-count">1</span></li></ul></li></ul>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="二维vector初始化及大小"><a href="#二维vector初始化及大小" class="headerlink" title="二维vector初始化及大小"></a>二维vector初始化及大小</h1><pre><code>1.vector&lt;vector&lt;int&gt;&gt; vec1(10, vector&lt;int&gt;(10));
+2.vector&lt;vector&lt;int&gt;&gt; vec2;
+vec2.resize(vec1.size(), vector&lt;int&gt;(vec1[0].size));</code></pre>
+<h1 id="二维vector第一维升序，第二维降序排序"><a href="#二维vector第一维升序，第二维降序排序" class="headerlink" title="二维vector第一维升序，第二维降序排序"></a>二维vector第一维升序，第二维降序排序</h1><pre><code>vector&lt;vector&lt;int&gt;&gt; vec;
+sort(vec.begin(), vec.end(), [](const vector&lt;int&gt;&amp; a, const vector&lt;int&gt;&amp; b)&#123;
+    a[0] == b[0] ? a[1] &gt; b[1] : a[1] &lt; b[1];
+&#125;)；</code></pre>
+<a id="more"></a>
+
+<h1 id="双端队列deque"><a href="#双端队列deque" class="headerlink" title="双端队列deque"></a>双端队列deque</h1><pre><code>deque&lt;type&gt; dq;
+dq.push_front(1); dp.push_back(1); // 向头 / 向尾插入元素;
+dp.front(); dp.back(); // 取头 / 取尾元素;
+dp.pop_front(); dp.pop_back(); // 删除头部 / 删除尾部元素;
+dp.size(); dp.resize(int); // 返回队列长度 / 重置队列长度;</code></pre>
+<h1 id="max-element函数找最大元素-min-element函数找最小元素"><a href="#max-element函数找最大元素-min-element函数找最小元素" class="headerlink" title="*max_element函数找最大元素 *min_element函数找最小元素"></a>*max_element函数找最大元素 *min_element函数找最小元素</h1><pre><code>vector&lt;int&gt; vec;
+*max_element(vec.begin(), vec.end());
+*min_element(vec.begin(), vec.end());</code></pre>
+<h1 id="stack相关简单函数"><a href="#stack相关简单函数" class="headerlink" title="stack相关简单函数"></a>stack相关简单函数</h1><pre><code>stack&lt;int&gt; sta;
+sta.push(x); //将x压入栈sta
+int x = sta.top(); //取得栈顶元素
+sta.pop(); //删除栈顶元素</code></pre>
+<h1 id="substr-函数"><a href="#substr-函数" class="headerlink" title="substr()函数"></a>substr()函数</h1><pre><code>s.substr(i, n); //截取字符串s当中从i开始（包括i）的n个字符
+s.substr(i); //截取从i开始（包括i）的余下字符</code></pre>
+<h1 id="replace-函数"><a href="#replace-函数" class="headerlink" title="replace()函数"></a>replace()函数</h1><pre><code>s.replace(i, n, s1); //用s1替换从i开始（包括）的n个字符</code></pre>
+<h1 id="字符串查找函数"><a href="#字符串查找函数" class="headerlink" title="字符串查找函数"></a>字符串查找函数</h1><pre><code>s.find(s1);  //查找s中第一次出现s1的位置，并返回（包括0）
+s.rfind(s1);   //查找s中最后次出现s1的位置，并返回（包括0）
+s.find_first_of(s1);  //查找在s1中任意一个字符在s中第一次出现的位置，并返回（包括0）
+s.find_last_of(s1);   //查找在s1中任意一个字符在s中最后一次出现的位置，并返回（包括0）
+s.fin_first_not_of(s1);  //查找s中第一个不属于s1中的字符的位置，并返回（包括0）
+s.fin_last_not_of(s1);  //查找s中最后一个不属于s1中的字符的位置，并返回（包括0）</code></pre>
+<h1 id="accumulate-对容器求和"><a href="#accumulate-对容器求和" class="headerlink" title="accumulate()对容器求和"></a>accumulate()对容器求和</h1><pre><code>参数解释：函数共需要三个参数
+    · 头两个形参指定要累加的元素范围，第三个形参则是累加的初值。
+    · 累加的初值必须与容器中数据类型相符
+string sum = accumulate(v.begin() , v.end() , string(&quot; &quot;)); //使用accumulate把string型的vector容器中的元素连接起来
+accumulate(vec.begin() , vec.end() , 0); //统计vector&lt;int&gt;容器对象中的元素之和</code></pre>
+<h1 id="string转int、double、long"><a href="#string转int、double、long" class="headerlink" title="string转int、double、long"></a>string转int、double、long</h1><pre><code>string s = to_string(222); //转为字符串
+int i = stoi(s); //直接将字符转为对应的数字
+double = stod(s); 
+long l = stol(s);</code></pre>
+<h1 id="带排序的数据结构"><a href="#带排序的数据结构" class="headerlink" title="带排序的数据结构"></a>带排序的数据结构</h1><pre><code>priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; que; 自动升序排序
+std::pop_heap(vec.begin(), vec.end(), greater() ); grearter()自己定义比较函数</code></pre>
+<h1 id="先序遍历"><a href="#先序遍历" class="headerlink" title="先序遍历"></a>先序遍历</h1><pre><code>void dfs(root)&#123;
+    if(root == null) return ;
+    处理代码;
+    dfs(root-&gt;left);
+    dfs(root-&gt;right);
+&#125;</code></pre>
+<h1 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h1><pre><code>void dfs(root)&#123;
+    if(root == null) return ;
+    dfs(root-&gt;left);
+    处理代码;
+    dfs(right);
+&#125;</code></pre>
+<h1 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h1><pre><code>void dfs(root)&#123;
+    if(root == null) return ;
+    dfs(root-&gt;left);
+    dfs(root-&gt;right);
+    处理代码;
+&#125;</code></pre>
+<h1 id="异或性质"><a href="#异或性质" class="headerlink" title="异或性质"></a>异或性质</h1><pre><code>归零律：a ^ a = 0
+恒等律：a ^ 0 = a
+交换律：a ^ b = b ^ a
+结合律：a ^b ^ c = a ^ (b ^ c) = (a ^ b) ^ c;
+自反：a ^ b ^ a = b.
+d = a ^ b ^ c 可以推出 a = d ^ b ^ c.</code></pre>
+<h1 id="return-this-和-return-this"><a href="#return-this-和-return-this" class="headerlink" title="return *this 和 return this"></a>return *this 和 return this</h1><pre><code>return this; //返回当前对象的地址
+&amp; -- return *this; //返回当前对象本身
+return *this; //返回当前对象的克隆</code></pre>
+<h1 id="唤醒线程函数"><a href="#唤醒线程函数" class="headerlink" title="唤醒线程函数"></a>唤醒线程函数</h1><pre><code>notify_one(); //随机唤醒一个等待的线程
+notify_all(); //唤醒所有等待的线程</code></pre>
+<h1 id="const"><a href="#const" class="headerlink" title="const"></a>const</h1><pre><code>const int n = 8; //const修饰普通类型变量，其值不能修改
+const int *p = 8; //const修饰指针指向的内容，其指向的内容不可改变
+int* const p = &amp;n; //const修饰指针指向的内存地址，其地址不可改变，但其内容可以被改变
+
+const于成员函数后面修饰，则该成员函数不能改变被调用对象的内容
+若该成员函数想修改某一个成员变量，则需要在定义成员变量时用mutable来修饰该成员变量</code></pre>
+<h1 id="map与unordered-map"><a href="#map与unordered-map" class="headerlink" title="map与unordered_map"></a>map与unordered_map</h1><pre><code>map与unordered_map，存储key-value值，可用通过key快速索引到value；
+map底层是基于红黑树(一种非严格意义上的平衡二叉树)，因此map内部所有的数据都是有序的，map的查询、插入、删除操作的时间复杂度都是O(logn)；
+unordered_map不会根据key的大小进行排序，存储时根据key的hash值判断元素是否相同，其内部元素是无序的
+
+map&lt;string, int&gt; mp;
+unordered_map&lt;string, int&gt; un_mp;
+
+//插入数据的三种方式,mp与un_mp操作相同
+mp.insert(pair&lt;string, int&gt;(&quot;apple&quot;, 2));
+mp.insert(map&lt;string, int&gt;::value_type(&quot;orange&quot;, 3));
+mp[&quot;banana&quot;] = 6;
+
+//遍历，mp与un_mp操作相同
+map&lt;string, int&gt;::iterator iter;
+for(iter = mp.begin(); iter != mp.end(); iter++)&#123;
+    cout&lt;&lt; iter-&gt;first &lt;&lt; iter-&gt;second;
+&#125;
+
+//基本操作，mp与un_mp操作相同
+mp.empty(); //判断是否有元素
+iter = mp.find(key); //返回一个迭代器指向键值为key的元素，如果没找到则返回end();
+mp.count(key); //返回键值等于key的元素的个数；
+int n = mp[key]; // 取键值为key的value； </code></pre>
+
+      
+
+      
     </div>
-    
-  </article>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/03/02/daily-notes/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2021/06/23/git-tips/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          git_tips
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/01/04/clbrobot-beginner/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">clbrobot_beginner</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+
           </div>
         </div>
       </div>
@@ -202,7 +437,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
