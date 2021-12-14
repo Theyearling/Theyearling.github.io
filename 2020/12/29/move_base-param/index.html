@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>move_base相关参数 | Theyearling—岁鹿</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="move_base实现参数as_,             &#x2F;&#x2F;movebase节点服务器 planner_,        &#x2F;&#x2F;全局规划器 tc_,             &#x2F;&#x2F;局部规划器 planner_costmap_ros_, &#x2F;&#x2F;规划器代价地图 controller_costmap_ros_, &#x2F;&#x2F;控制器代价地图">
+  <meta name="description" content="move_base实现参数as_,             &#x2F;&#x2F;movebase节点服务器 planner_,        &#x2F;&#x2F;全局规划器 tc_,             &#x2F;&#x2F;局部规划器 planner_costmap_ros_, &#x2F;&#x2F;全局规划器代价地图 controller_costmap_ros_, &#x2F;&#x2F;局部控制器代价地图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="move_base相关参数">
 <meta property="og:url" content="http://example.com/2020/12/29/move_base-param/index.html">
 <meta property="og:site_name" content="Theyearling—岁鹿">
-<meta property="og:description" content="move_base实现参数as_,             &#x2F;&#x2F;movebase节点服务器 planner_,        &#x2F;&#x2F;全局规划器 tc_,             &#x2F;&#x2F;局部规划器 planner_costmap_ros_, &#x2F;&#x2F;规划器代价地图 controller_costmap_ros_, &#x2F;&#x2F;控制器代价地图">
+<meta property="og:description" content="move_base实现参数as_,             &#x2F;&#x2F;movebase节点服务器 planner_,        &#x2F;&#x2F;全局规划器 tc_,             &#x2F;&#x2F;局部规划器 planner_costmap_ros_, &#x2F;&#x2F;全局规划器代价地图 controller_costmap_ros_, &#x2F;&#x2F;局部控制器代价地图">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-29T04:11:41.647Z">
-<meta property="article:modified_time" content="2021-07-07T13:38:33.729Z">
+<meta property="article:modified_time" content="2021-11-25T12:16:46.711Z">
 <meta property="article:author" content="Theyearling">
 <meta property="article:tag" content="move_base">
 <meta name="twitter:card" content="summary">
@@ -176,8 +176,8 @@
         <h1 id="move-base实现参数"><a href="#move-base实现参数" class="headerlink" title="move_base实现参数"></a>move_base实现参数</h1><pre><code>as_,             //movebase节点服务器
 planner_,        //全局规划器
 tc_,             //局部规划器
-planner_costmap_ros_, //规划器代价地图
-controller_costmap_ros_, //控制器代价地图</code></pre>
+planner_costmap_ros_, //全局规划器代价地图
+controller_costmap_ros_, //局部控制器代价地图</code></pre>
 <a id="more"></a>
 <pre><code>planner_plan_, //plan buffer
 latest_plan_, //plan buffer
@@ -214,13 +214,13 @@ max_planning_retries：在执行恢复行为之前允许计划重试的次数.�
 c_freq_change_：是否改变控制频率</code></pre>
 <h1 id="dwa-planner实现参数"><a href="#dwa-planner实现参数" class="headerlink" title="dwa_planner实现参数"></a>dwa_planner实现参数</h1><pre><code>dp_：DWAplanner轨迹控制器</code></pre>
 <h1 id="dwa-planner配置参数"><a href="#dwa-planner配置参数" class="headerlink" title="dwa_planner配置参数"></a>dwa_planner配置参数</h1><pre><code>sim_time (double, default: 1.7)：仿真时间，仿真距离=sim_time*vel
-sim_granularity (double, default: 0.025)：轨迹的碰撞检测距离
-vx_samples (integer, default: 3)：
-x轴方向速度采样数量
+sim_granularity (double, default: 0.025)：步长，轨迹的采样点之间的距离，轨迹上点的密集程度
+vx_samples (integer, default: 3)：x轴方向速度采样数量
 vy_samples (integer, default: 10)：y轴方向速度采样数量
 vth_samples (integer, default: 20)：角速度采样数量
 controller_frequency (double, default: 20.0)：发布控制速度的频率
 
+latch_xy_goal_tolerance：设置为true,如果到达容错距离内,机器人就会原地旋转,即使转动是会跑出容错距离外
 path_distance_bias (double, default: 32.0)：局部规划路径与全局路径保持一致的权重系数
 goal_distance_bias (double, default: 24.0)：以多大的权重尝试到达目标点，增大后与全局规划路径一致性降低
 occdist_scale (double, default: 0.01)：机器人以多大权重躲避障碍物，过大会导致机器人陷入困境
@@ -468,6 +468,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">wps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">clbrobot</a>
               </li>
              
@@ -481,6 +489,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">move_base</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Custom_menu</a>
               </li>
             
             <div class="clearfix"></div>

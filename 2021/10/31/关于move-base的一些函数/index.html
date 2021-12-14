@@ -6,25 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>clbrobot_beginner | Theyearling—岁鹿</title>
+  <title>关于move_base的一些函数 | Theyearling—岁鹿</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="VM虚拟机链接clbrobot小车 将小车与PC机连接同一网络  将小车开机并对小车进行网络连接   查看小车及虚拟机的IP地址（ifconfig）  查看并记录IP地址，为后续设置做准备   设置虚拟机网络适配器，如图，以保证小车与虚拟机在同一网段">
+  <meta name="description" content="getSizeInCellsX() getSizeInCellsY() unsigned int costmap_2d::Costmap2DROS::getSizeInCellsX() &#x2F; getSizeInCellsY() const &#x2F;&#x2F;returns the x size of the costmap in cells. 返回代价地图的x长度 &#x2F; y的长度">
 <meta property="og:type" content="article">
-<meta property="og:title" content="clbrobot_beginner">
-<meta property="og:url" content="http://example.com/2021/01/04/clbrobot-beginner/index.html">
+<meta property="og:title" content="关于move_base的一些函数">
+<meta property="og:url" content="http://example.com/2021/10/31/%E5%85%B3%E4%BA%8Emove-base%E7%9A%84%E4%B8%80%E4%BA%9B%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="Theyearling—岁鹿">
-<meta property="og:description" content="VM虚拟机链接clbrobot小车 将小车与PC机连接同一网络  将小车开机并对小车进行网络连接   查看小车及虚拟机的IP地址（ifconfig）  查看并记录IP地址，为后续设置做准备   设置虚拟机网络适配器，如图，以保证小车与虚拟机在同一网段">
+<meta property="og:description" content="getSizeInCellsX() getSizeInCellsY() unsigned int costmap_2d::Costmap2DROS::getSizeInCellsX() &#x2F; getSizeInCellsY() const &#x2F;&#x2F;returns the x size of the costmap in cells. 返回代价地图的x长度 &#x2F; y的长度">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://res.cloudinary.com/theyearling/image/upload/v1609940428/ROS/virtual_machine_settings_euuygu.png">
-<meta property="og:image" content="https://res.cloudinary.com/theyearling/image/upload/v1609944608/ROS/PC_setting_zwf6he.png">
-<meta property="og:image" content="https://res.cloudinary.com/theyearling/image/upload/v1609945217/ROS/ping_operation_swetzb.png">
-<meta property="article:published_time" content="2021-01-04T09:03:48.000Z">
-<meta property="article:modified_time" content="2021-12-14T03:15:07.101Z">
+<meta property="article:published_time" content="2021-10-31T12:19:10.000Z">
+<meta property="article:modified_time" content="2021-12-14T03:13:03.937Z">
 <meta property="article:author" content="Theyearling">
 <meta property="article:tag" content="ROS">
-<meta property="article:tag" content="clbrobot">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://res.cloudinary.com/theyearling/image/upload/v1609940428/ROS/virtual_machine_settings_euuygu.png">
   
     <link rel="alternative" href="/atom.xml" title="Theyearling—岁鹿" type="application/atom+xml">
   
@@ -158,73 +153,63 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-clbrobot-beginner" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-关于move-base的一些函数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      clbrobot_beginner
+      关于move_base的一些函数
     </h1>
   
 
         
-        <a href="/2021/01/04/clbrobot-beginner/" class="archive-article-date">
-  	<time datetime="2021-01-04T09:03:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-04</time>
+        <a href="/2021/10/31/%E5%85%B3%E4%BA%8Emove-base%E7%9A%84%E4%B8%80%E4%BA%9B%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2021-10-31T12:19:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="VM虚拟机链接clbrobot小车"><a href="#VM虚拟机链接clbrobot小车" class="headerlink" title="VM虚拟机链接clbrobot小车"></a>VM虚拟机链接clbrobot小车</h2><ul>
-<li><p><strong>将小车与PC机连接同一网络</strong></p>
+        <h3 id="getSizeInCellsX-getSizeInCellsY"><a href="#getSizeInCellsX-getSizeInCellsY" class="headerlink" title="getSizeInCellsX() getSizeInCellsY()"></a>getSizeInCellsX() getSizeInCellsY()</h3><ul>
+<li>unsigned int costmap_2d::Costmap2DROS::getSizeInCellsX() / getSizeInCellsY() const</li>
+<li>//returns the x size of the costmap in cells. <strong>返回代价地图的x长度 / y的长度</strong></li>
+</ul>
+<a id="more"></a>
+
+<h3 id="tf-createQuaternionMsgFromYaw-double-yaw"><a href="#tf-createQuaternionMsgFromYaw-double-yaw" class="headerlink" title="tf::createQuaternionMsgFromYaw    (double yaw)"></a>tf::createQuaternionMsgFromYaw    (double yaw)</h3><ul>
+<li>static geometry_msgs::Quaternion tf::createQuaternionMsgFromYaw    (double yaw)</li>
+<li>//construct a Quaternion Message from yaw only. <strong>将欧拉角（yaw）直接转换为ROS的四元数消息类型</strong>，其内部实现如下：<ol>
+<li>tf::Quaternion q;</li>
+<li>q.setRPY(0.0, 0.0, yaw); // 将欧拉角转换为四元数</li>
+<li>geometry_msgs::Quaternion q_msg;</li>
+<li>qutaernionTFToMsg(q, q_msg); // <strong>将tf::Quaternion类型的四元数直接转换为ROS的四元数消息类型</strong>，其内部实现如下：<ul>
+<li> <em>若q的模不为1，则利用normalize() 方法将其归一化</em>。</li>
+<li> <em>msg_q.x = q.x(); msg_q.x</em></li>
+</ul>
+</li>
+<li>return q_msg;</li>
+</ol>
+</li>
+</ul>
+<h3 id="costmap-2d-Costmap2DROS-getRobotFootprint"><a href="#costmap-2d-Costmap2DROS-getRobotFootprint" class="headerlink" title="costmap_2d::Costmap2DROS::getRobotFootprint    ( )"></a>costmap_2d::Costmap2DROS::getRobotFootprint    ( )</h3><p>   获取机器人边界（在机器人坐标系下，包含padding） //  std::vector&lt;geometry_msgs::Point&gt;</p>
+<h3 id="cfg文件"><a href="#cfg文件" class="headerlink" title=".cfg文件"></a>.cfg文件</h3><p>   gen.add(name, type, level, description, deault, min, max);</p>
 <ul>
-<li>将小车开机并对小车进行网络连接</li>
+<li>name: 参数名，使用字符串描述</li>
+<li>type：定义参数的类型，可以是int_t、double_t、str_t或者bool_t</li>
+<li>level：参数动态配置回调函数中的掩码，在回调函数中会修改所有参数的掩码，表示参数已经进行修改</li>
+<li>description：描述参数作用的字符串</li>
+<li>default：设置参数的默认值</li>
+<li>min：可选，设置参数的最小值，对于字符串和布尔类型值不生效</li>
+<li>max：可选，设置参数的最大值，对于字符串和布尔类型值不生效</li>
 </ul>
-</li>
-<li><p><strong>查看小车及虚拟机的IP地址（ifconfig）</strong></p>
-<ul>
-<li>查看并记录IP地址，为后续设置做准备</li>
-</ul>
-</li>
-<li><p><strong>设置虚拟机网络适配器，如图，以保证小车与虚拟机在同一网段</strong></p>
- <a id="more"></a>
-<p> <img style="margin-left:23%" src="https://res.cloudinary.com/theyearling/image/upload/v1609940428/ROS/virtual_machine_settings_euuygu.png" width="50%" height="50%"><br></p>
-</li>
-<li><p><strong>设置虚拟机中/etc/hosts及~/.bashrc文件</strong></p>
-<ul>
-<li>$sudo gedit /etc/hosts</li>
-<li>$sudo gedit ~/.bashrc<br><img style="margin-left:21%" src="https://res.cloudinary.com/theyearling/image/upload/v1609944608/ROS/PC_setting_zwf6he.png" width="50%" height="50%"><br></li>
-</ul>
-</li>
-<li><p><strong>虚拟机端登陆树莓派小车</strong></p>
-<ul>
-<li>$ssh clbrobot@clbrobot</li>
-</ul>
-</li>
-<li><p><strong>设置小车端/etc/hosts及~/.bashrc文件</strong></p>
-<ul>
-<li>sudo vi /etc/hosts</li>
-<li>sudo vi ~/.bashrc</li>
-<li>如PC端一般，添加小车及虚拟机IP</li>
-</ul>
-</li>
-<li><p><strong>检测是否设置成功</strong></p>
-<ul>
-<li>小车端 ping yourname</li>
-<li>虚拟机 ping robotname<br><img style="margin-left:21%" src="https://res.cloudinary.com/theyearling/image/upload/v1609945217/ROS/ping_operation_swetzb.png" width="50%" height="50%"><br></li>
-</ul>
-</li>
-<li><p><strong>小车关机</strong></p>
-<ul>
-<li>sudo shutdown</li>
-</ul>
-</li>
-</ul>
-<!-- rosrun rikirobot_nav calibrate_angular.py
-clbrobot@robot:~/catkin_ws/src/clbrobot_project/clbrobot/launch$ vi bringup.launch -->
+<h3 id="tf-poseStampedTFToMsg"><a href="#tf-poseStampedTFToMsg" class="headerlink" title="tf::poseStampedTFToMsg( )"></a>tf::poseStampedTFToMsg( )</h3><p>   将tf::Stamped<a href="tf::Pose">tf::Pose</a>格式转为geometry_msgs::PoseStamped消息格式</p>
+<h3 id="getRobotPose"><a href="#getRobotPose" class="headerlink" title="getRobotPose( )"></a>getRobotPose( )</h3><p>   tf调用getRobotPose()得到的是tf::Stamped<a href="tf::Pose">tf::Pose</a>类型<br>   tf2调用getRobotPose()得到的是geometry_msgs::PoseStamped类型，传入的全局路径是该类型</p>
+<h3 id="tf-poseStampedTFToMsg-param1-param2"><a href="#tf-poseStampedTFToMsg-param1-param2" class="headerlink" title="tf::poseStampedTFToMsg(param1, param2)"></a>tf::poseStampedTFToMsg(param1, param2)</h3><p>   tf::Stamped<a href="tf::Pose">tf::Pose</a> param1;<br>   geometry_msgs::PoseStamped param2;<br>   将param1转换为param2格式</p>
+<h3 id="boost-shared-ptr"><a href="#boost-shared-ptr" class="headerlink" title="boost::shared_ptr"></a>boost::shared_ptr</h3><p>   boost::shared_ptr<DWAPlanner> dp_<br>   boost::shared_ptr会对所管理的对象进行引用计数，当新增一个boost::shared_ptr对该对象进行管理时，引用计数加1，减少一个管理时，引用计数减1，当计数为0时释放内存</p>
+
       
 
       
@@ -232,37 +217,7 @@ clbrobot@robot:~/catkin_ws/src/clbrobot_project/clbrobot/launch$ vi bringup.laun
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ROS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">clbrobot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ROS//" class="article-tag-list-link color4">ROS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ROS/clbrobot//" class="article-tag-list-link color4">clbrobot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -312,7 +267,7 @@ clbrobot@robot:~/catkin_ws/src/clbrobot_project/clbrobot/launch$ vi bringup.laun
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/01/04/clbrobot-beginner/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/10/31/%E5%85%B3%E4%BA%8Emove-base%E7%9A%84%E4%B8%80%E4%BA%9B%E5%87%BD%E6%95%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -326,18 +281,18 @@ clbrobot@robot:~/catkin_ws/src/clbrobot_project/clbrobot/launch$ vi bringup.laun
   
 <nav id="article-nav">
   
-    <a href="/2021/03/02/daily-notes/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/12/14/commands-of-ROS/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          daily-notes
+          commands of ROS
         
       </div>
     </a>
   
   
-    <a href="/2020/12/29/ROSbegin/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ROSbegin</div>
+    <a href="/2021/09/29/Ubuntu16-04%E5%AE%89%E8%A3%85wps/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ubuntu16.04安装软件</div>
       <i class="icon-circle-right"></i>
     </a>
   
