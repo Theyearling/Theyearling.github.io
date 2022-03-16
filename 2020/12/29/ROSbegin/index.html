@@ -16,7 +16,7 @@
 <meta property="og:description" content="Ros_begenningsome problem in ros-learning安装ros – 参考sudo apt-get update出现:由于没有公钥，无法验证下列签名：NO_PUBKEY F42ED6FBAB17C654  sudo apt-key adv –keyserver keyserver.ubuntu.com –recv-keys F42ED6FBAB17C654">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-29T06:33:43.000Z">
-<meta property="article:modified_time" content="2021-11-12T07:19:59.290Z">
+<meta property="article:modified_time" content="2022-03-14T10:23:06.872Z">
 <meta property="article:author" content="Theyearling">
 <meta property="article:tag" content="ROS">
 <meta name="twitter:card" content="summary">
@@ -230,7 +230,9 @@ Could not load controller &#39;joint_velocity_controller&#39; because controller
 <p>  2、git clone -b kinetic-devel <a target="_blank" rel="noopener" href="https://github.com/ros-planning/navigation.git">https://github.com/ros-planning/navigation.git</a></p>
 <h1 id="移除第一种方法安装的navigation"><a href="#移除第一种方法安装的navigation" class="headerlink" title="移除第一种方法安装的navigation"></a>移除第一种方法安装的navigation</h1><p>  sudo apt-get remove ros-kinetic-navigation</p>
 <h1 id="运行turtlebot自主导航demo"><a href="#运行turtlebot自主导航demo" class="headerlink" title="运行turtlebot自主导航demo"></a>运行turtlebot自主导航demo</h1><p>  roslaunch turtlebot_gazebo turtlebot_world.launch<br>  roslaunch turtlebot_gazebo amcl_demo.launch<br>  roslaunch turtlebot_rviz_launchers view_navigation.launch</p>
-<h1 id="运行turtlebot3自主导航demo"><a href="#运行turtlebot3自主导航demo" class="headerlink" title="运行turtlebot3自主导航demo"></a>运行turtlebot3自主导航demo</h1><h1 id="地图YAML文件参数含义"><a href="#地图YAML文件参数含义" class="headerlink" title="地图YAML文件参数含义"></a>地图YAML文件参数含义</h1><p>  resolution表示地图的分辨率，米/像素；origin表示左下像素的2D姿位姿（x，y，yaw）；<br>  occupied_thresh表示占用概率大于该阈值的像素是完全占用的；<br>  free_thresh表示占用概率小于该阈值的像素是完全未被占用的。</p>
+<h1 id="运行turtlebot3自主导航demo"><a href="#运行turtlebot3自主导航demo" class="headerlink" title="运行turtlebot3自主导航demo"></a>运行turtlebot3自主导航demo</h1><p>  export TURTLEBOT3_MODEL=burger<br>  roslaunch turtlebot3_gazebo turtlebot3_world.launch</p>
+<p>  export TURTLEBOT3_MODEL=burger<br>  roslaunch turtlebot3_navigation turtlebot3_navigation.launch</p>
+<h1 id="地图YAML文件参数含义"><a href="#地图YAML文件参数含义" class="headerlink" title="地图YAML文件参数含义"></a>地图YAML文件参数含义</h1><p>  resolution表示地图的分辨率，米/像素；origin表示左下像素的2D姿位姿（x，y，yaw）；<br>  occupied_thresh表示占用概率大于该阈值的像素是完全占用的；<br>  free_thresh表示占用概率小于该阈值的像素是完全未被占用的。</p>
 <h1 id="小车不按全局路径走"><a href="#小车不按全局路径走" class="headerlink" title="小车不按全局路径走"></a>小车不按全局路径走</h1><p>  降低controller_frequency参数</p>
 <h1 id="Could-not-find-Bullet"><a href="#Could-not-find-Bullet" class="headerlink" title="Could not find Bullet"></a>Could not find Bullet</h1><p>  sudo apt-get install libbullet-dev</p>
 <h1 id="Could-not-find-SDL"><a href="#Could-not-find-SDL" class="headerlink" title="Could not find SDL"></a>Could not find SDL</h1><p>  sudo apt-get install libsdl-image1.2-dev<br>  sudo apt-get install libsdl-dev</p>
@@ -397,7 +399,7 @@ Could not load controller &#39;joint_velocity_controller&#39; because controller
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 Theyearling
+    		&copy; 2022 Theyearling
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -409,7 +411,7 @@ Could not load controller &#39;joint_velocity_controller&#39; because controller
 	<div class="outer">
 	  <div id="footer-info">
 		  <div class="footer-left">
-			  &copy; 2021 Theyearling
+			  &copy; 2022 Theyearling
 		  </div>
 			<div class="footer-right">
 	  
