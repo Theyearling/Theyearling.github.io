@@ -16,7 +16,7 @@
 <meta property="og:description" content="二维vector初始化及大小1.vector&lt;vector&lt;int&gt;&gt; vec1(10, vector&lt;int&gt;(10)); 2.vector&lt;vector&lt;int&gt;&gt; vec2; vec2.resize(vec1.size(), vector&lt;int&gt;(vec1[0].size)); 二维vector第一维升序，第二维降序排">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-02T12:07:21.000Z">
-<meta property="article:modified_time" content="2022-01-24T07:33:37.580Z">
+<meta property="article:modified_time" content="2022-04-13T06:01:26.401Z">
 <meta property="article:author" content="Theyearling">
 <meta property="article:tag" content="c++">
 <meta name="twitter:card" content="summary">
@@ -182,6 +182,8 @@ sort(vec.begin(), vec.end(), [](const vector&lt;int&gt;&amp; a, const vector&lt;
 &#125;)；</code></pre>
 <a id="more"></a>
 
+<h1 id="vector的resize"><a href="#vector的resize" class="headerlink" title="vector的resize()"></a>vector的resize()</h1><pre><code>void resize (size_type n, value_type val);
+重新定义vector的大小，若n比原有的size大，则用val初始化新填充的元素</code></pre>
 <h1 id="双端队列deque"><a href="#双端队列deque" class="headerlink" title="双端队列deque"></a>双端队列deque</h1><pre><code>deque&lt;type&gt; dq;
 dq.push_front(1); dp.push_back(1); // 向头 / 向尾插入元素;
 dp.front(); dp.back(); // 取头 / 取尾元素;
@@ -294,6 +296,14 @@ Container 就是容器类型（Container必须是用数组实现的容器，比�
 Functional 就是比较的方式，默认是大顶堆
 eg:  priority_queue&lt;pair&lt;int, int&gt;, vector&lt;pair&lt;int, int&gt;&gt;, decltype(cmp)&gt; pq(cmp);
 decltype返回变量类型：decltype与auto关键字一样，用于进行编译时类型推导，不过它与auto还是有一些区别的。decltype的类型推导并不是像auto一样是从变量声明的初始化表达式获得变量的类型，而是总是以一个普通表达式作为参数，返回该表达式的类型,而且decltype并不会对表达式进行求值</code></pre>
+<h1 id="unsigned-int做减法-比较大小时"><a href="#unsigned-int做减法-比较大小时" class="headerlink" title="unsigned int做减法/比较大小时"></a>unsigned int做减法/比较大小时</h1><pre><code>int -&gt; [-2^31-1, 2^31-1]
+unsigned int -&gt; [0, 2^32-1]
+unsigned int a, b;
+int c = (a - b) //当a比b大时，能得到正确的结果，否则得到对应负数的补码
+    1. int c = a &gt; b ? (a - b) : (b - a);
+    2. int c = (int)a - (int)b; //如果a，b的值超过int类型的范围，将得不到正确的结果</code></pre>
+<h1 id="vector-size-n"><a href="#vector-size-n" class="headerlink" title="vector.size() - n"></a>vector.size() - n</h1><pre><code>若vector.size() &lt; n, 则得不到正确结果，此时：
+(int)(vector.size() - n); //可以得到正确结果</code></pre>
 
       
 
@@ -565,6 +575,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Custom_menu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
             
             <div class="clearfix"></div>
