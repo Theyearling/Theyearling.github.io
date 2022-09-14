@@ -153,6 +153,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Matlab-notes" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/04/22/Matlab-notes/">Matlab_notes</a>
+    </h1>
+  
+
+        
+        <a href="/2022/04/22/Matlab-notes/" class="archive-article-date">
+  	<time datetime="2022-04-22T03:42:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ind2sub-a-1-2-3-4"><a href="#ind2sub-a-1-2-3-4" class="headerlink" title="ind2sub a = [1,2,3,4]"></a>ind2sub a = [1,2,3,4]</h1><pre><code>将线性索引转为行列坐标，起点在左上角，即:
+索引: 1 3    坐标：（1，1） （1，2）
+      2 4         （2，1） （2，2）
+a(ind2sub([2,2], 4)) = 5 %将（2，2）处的值4变为5
+[c,d] = in2sub(4,4) %得到行列坐标，即c=2，d=2</code></pre>
+        
+          <a class="article-more-a" href="/2022/04/22/Matlab-notes/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Matlab</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/04/22/Matlab-notes/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Vscode-tips" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -931,93 +1011,6 @@ sort(vec.begin(), vec.end(), [](const vector&lt;int&gt;&amp; a, const vector&lt;
 
 
   
-    <article id="post-ROSbegin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/29/ROSbegin/">ROSbegin</a>
-    </h1>
-  
-
-        
-        <a href="/2020/12/29/ROSbegin/" class="archive-article-date">
-  	<time datetime="2020-12-29T06:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Ros-begenning"><a href="#Ros-begenning" class="headerlink" title="Ros_begenning"></a>Ros_begenning</h1><h1 id="some-problem-in-ros-learning"><a href="#some-problem-in-ros-learning" class="headerlink" title="some problem in ros-learning"></a>some problem in ros-learning</h1><h1 id="安装ros-–-参考"><a href="#安装ros-–-参考" class="headerlink" title="安装ros – 参考"></a>安装ros – <a target="_blank" rel="noopener" href="http://wiki.ros.org/cn/kinetic/Installation/Ubuntu">参考</a></h1><h1 id="sudo-apt-get-update出现-由于没有公钥，无法验证下列签名：NO-PUBKEY-F42ED6FBAB17C654"><a href="#sudo-apt-get-update出现-由于没有公钥，无法验证下列签名：NO-PUBKEY-F42ED6FBAB17C654" class="headerlink" title="sudo apt-get update出现:由于没有公钥，无法验证下列签名：NO_PUBKEY F42ED6FBAB17C654"></a>sudo apt-get update出现:由于没有公钥，无法验证下列签名：NO_PUBKEY F42ED6FBAB17C654</h1><p>  sudo apt-key adv –keyserver keyserver.ubuntu.com –recv-keys F42ED6FBAB17C654</p>
-        
-          <a class="article-more-a" href="/2020/12/29/ROSbegin/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ROS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ROS//" class="article-tag-list-link color4">ROS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/29/ROSbegin/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1159,6 +1152,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
             
             <div class="clearfix"></div>
